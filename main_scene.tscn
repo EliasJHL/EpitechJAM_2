@@ -38,12 +38,12 @@ texture = ExtResource("1_7p8sb")
 
 [node name="Weapon" type="Sprite2D" parent="player/Weapon_rotation"]
 z_index = 90
-position = Vector2(16, 4.00001)
-scale = Vector2(0.328124, 0.3125)
+position = Vector2(16, 2.00001)
+scale = Vector2(0.3, 0.286)
 texture = ExtResource("3_yewub")
 
 [node name="Shoot_Point" type="Marker2D" parent="player/Weapon_rotation/Weapon"]
-position = Vector2(21.3334, -12.8)
+position = Vector2(16.6667, -10.4895)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(1.5, 1.5)
