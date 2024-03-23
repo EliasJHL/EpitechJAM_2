@@ -18,23 +18,28 @@ size = Vector2(20, 389)
 
 [node name="MainScene" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(355, 354)
 script = ExtResource("2_roqg8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 shape = SubResource("RectangleShape2D_q5cjt")
 
-[node name="Player_Sprite" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Player_Sprite" type="Sprite2D" parent="player"]
 scale = Vector2(0.0291667, 0.0291667)
 texture = ExtResource("1_7p8sb")
 
-[node name="Weapon" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Weapon_rotation" type="Marker2D" parent="player"]
+
+[node name="Weapon" type="Sprite2D" parent="player/Weapon_rotation"]
 modulate = Color(0.211765, 0.215686, 0.223529, 1)
 z_index = 90
-position = Vector2(-1.01328e-06, 0)
+position = Vector2(10, 0)
 scale = Vector2(0.0179687, 0.00208333)
 texture = ExtResource("1_7p8sb")
+
+[node name="Shoot_Point" type="Marker2D" parent="player/Weapon_rotation/Weapon"]
+position = Vector2(222.609, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(448, 386)
