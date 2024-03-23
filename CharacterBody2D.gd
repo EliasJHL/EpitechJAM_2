@@ -18,7 +18,6 @@ func _process(delta):
 #Fonction pour placer les portails
 func fire():
 	if Input.is_action_just_pressed("Place_Portal"):
-		print("test")
 		#création d'une instance de la balle
 		var bullet = bullet_path.instantiate()
 		#Position de la balle
