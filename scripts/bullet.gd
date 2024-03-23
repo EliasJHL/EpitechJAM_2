@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const blue_path = preload("res://scenes/blue_portal.tscn")
-const orange_path = preload("res://scenes/orange_portal.tscn")
+const orange_path = preload("res://scenes/orange1_portal.tscn")
 
 static var created_walls_b = []
 static var created_walls_o = []
@@ -33,7 +33,7 @@ func _on_area_2d_body_entered(body):
 func _create_portal_orange(portal_path, body):
 	var portal = portal_path.instantiate()
 	portal.global_position = self.global_position
-	portal.global_rotation = body.global_rotation #Rotation du portail
+	portal.global_rotation = self.global_rotation #Rotation du portail
 	get_tree().get_root().add_child(portal)
 	created_walls_o.append(portal)
 	self.queue_free()

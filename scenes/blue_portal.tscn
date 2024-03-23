@@ -1,24 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://byqi3daw1fexd"]
+[gd_scene load_steps=5 format=3 uid="uid://byqi3daw1fexd"]
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_tcoui"]
+[ext_resource type="Script" path="res://scenes/blue.gd" id="2_36bqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmv8n"]
+size = Vector2(20, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6m5a"]
-size = Vector2(22, 22)
+size = Vector2(22, 6)
 
 [node name="blue_portal" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0117647, 0, 1, 1)
-position = Vector2(-5.36442e-07, 6.55651e-07)
-scale = Vector2(0.0416667, 0.0416667)
+position = Vector2(-5.36442e-07, -4.76837e-07)
+scale = Vector2(0.0416667, 0.00833333)
+texture = ExtResource("1_tcoui")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.0117647, 0, 1, 1)
+position = Vector2(0, -16)
+scale = Vector2(0.00625001, 0.00833333)
 texture = ExtResource("1_tcoui")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vmv8n")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_36bqo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_u6m5a")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -16)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
