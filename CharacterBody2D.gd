@@ -14,7 +14,7 @@ func _process(delta):
 
 #Fonction pour placer les portails
 func fire():
-	if Input.is_action_pressed("Place_Portal"):
+	if Input.is_action_just_pressed("Place_Portal"):
 		print("fire")
 
 #Système de gravité et déplacements basiques
@@ -31,4 +31,5 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	fire() #Appel du check s'il y a eu un tir
 	move_and_slide()
