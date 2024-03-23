@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://nnkls76shl42"]
+[gd_scene load_steps=11 format=3 uid="uid://nnkls76shl42"]
 
-[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_7p8sb"]
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_roqg8"]
-[ext_resource type="Texture2D" uid="uid://ct8jb0ria3aop" path="res://assets/pistol_blue.png" id="3_14agy"]
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_inlkx"]
+[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="2_q871a"]
+[ext_resource type="Texture2D" uid="uid://ct8jb0ria3aop" path="res://assets/pistol_blue.png" id="3_cihyj"]
+[ext_resource type="Texture2D" uid="uid://d2luaqxhvde8g" path="res://assets/point.png" id="4_eba5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5cjt"]
 size = Vector2(14, 14)
@@ -23,16 +24,22 @@ size = Vector2(20, 389)
 
 [node name="MainScene" type="Node2D"]
 
+[node name="Fond" type="Sprite2D" parent="."]
+modulate = Color(0.294118, 0.294118, 0.294118, 1)
+position = Vector2(547, 273)
+scale = Vector2(2.7, 1.6625)
+texture = ExtResource("1_inlkx")
+
 [node name="player" type="CharacterBody2D" parent="." groups=["Player_Body"]]
 position = Vector2(355, 354)
-script = ExtResource("2_roqg8")
+script = ExtResource("2_q871a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 shape = SubResource("RectangleShape2D_q5cjt")
 
 [node name="Player_Sprite" type="Sprite2D" parent="player"]
 scale = Vector2(0.0291667, 0.0291667)
-texture = ExtResource("1_7p8sb")
+texture = ExtResource("1_inlkx")
 
 [node name="Weapon_rotation" type="Marker2D" parent="player"]
 
@@ -40,13 +47,19 @@ texture = ExtResource("1_7p8sb")
 z_index = 90
 position = Vector2(12, -0.99999)
 scale = Vector2(0.25, 0.238)
-texture = ExtResource("3_14agy")
+texture = ExtResource("3_cihyj")
 
 [node name="Shoot_Point" type="Marker2D" parent="player/Weapon_rotation/Weapon"]
 position = Vector2(36, 6.29425e-05)
 
+[node name="PointLight2D" type="PointLight2D" parent="player/Weapon_rotation/Weapon"]
+position = Vector2(8, 0)
+scale = Vector2(0.2, 0.2)
+color = Color(1, 0.737255, 0, 1)
+texture = ExtResource("4_eba5g")
+
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(3, 3)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="player"]
@@ -63,7 +76,7 @@ shape = SubResource("RectangleShape2D_bc33s")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 scale = Vector2(1.0375, 0.0625)
-texture = ExtResource("1_7p8sb")
+texture = ExtResource("1_inlkx")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(706, 187)
@@ -75,7 +88,20 @@ shape = SubResource("RectangleShape2D_cpovn")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
 position = Vector2(-4.42504e-05, -2.49998)
 scale = Vector2(0.0375, 0.810417)
-texture = ExtResource("1_7p8sb")
+texture = ExtResource("1_inlkx")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." groups=["Portail_OK"]]
+position = Vector2(349, 95)
+rotation = -0.937519
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_cpovn")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+position = Vector2(-4.42504e-05, -2.49998)
+scale = Vector2(0.0375, 0.810417)
+texture = ExtResource("1_inlkx")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(622, 121)
@@ -87,7 +113,7 @@ shape = SubResource("RectangleShape2D_t20jl")
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
 position = Vector2(1.52588e-05, 1)
 scale = Vector2(0.0375, 0.810417)
-texture = ExtResource("1_7p8sb")
+texture = ExtResource("1_inlkx")
 
 [node name="Spawn" type="Marker2D" parent="."]
 position = Vector2(251, 340)

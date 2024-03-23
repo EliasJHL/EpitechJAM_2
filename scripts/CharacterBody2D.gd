@@ -14,8 +14,11 @@ var orange = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var weapon_sprite = $Weapon_rotation/Weapon
+var isLeft = velocity.x < 0
+
 #assets dont j'ai besoin pour l'arme
-const bullet_path = preload("res://bullet.tscn")
+const bullet_path = preload("res://scenes/bullet.tscn")
 
 #Fonction pour le viseur de l'arme
 func _process(delta):
@@ -72,11 +75,15 @@ func check_fall():
 
 #Changer la couleur du pistolet par rapport à la couleur du portail à placer
 func change_weapon_color():
+	$Weapon_rotation/Weapon/PointLight2D.energy = 0.01
 	if portal_status["last_portal"] == "None":
+		$Weapon_rotation/Weapon/PointLight2D.color = Color(0, 0, 255)
 		$Weapon_rotation/Weapon.texture = load("res://assets/pistol_blue.png")
 	elif  portal_status["last_portal"] == "Blue":
+		$Weapon_rotation/Weapon/PointLight2D.color = Color(255, 188, 0)
 		$Weapon_rotation/Weapon.texture = load("res://assets/pistol_orange.png")
 	elif portal_status["last_portal"] == "Orange":
+		$Weapon_rotation/Weapon/PointLight2D.color = Color(0, 0, 255)
 		$Weapon_rotation/Weapon.texture = load("res://assets/pistol_blue.png")
 
 #Système de gravité et déplacements basiques
@@ -92,7 +99,10 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	#Retourne l'arme pour qu'il vise toujours bien
+	weapon_sprite.flip_h = isLeft # NON FONCTIONNEL
+	
 	check_fall() #Check si le joueur est tombé dans le "void"
 	change_weapon_color() #Changer la couleur de l'arme
 	fire() #Appel du check s'il y a eu un tir
