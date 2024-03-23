@@ -27,6 +27,10 @@ func fire():
 		bullet.rotate($Weapon_rotation.rotation)
 		#Ajout des clones des balles sur la scene
 		get_tree().get_root().add_child(bullet)
+		#Application d'une impulsion
+		var impulse_direction = Vector2.RIGHT.rotated($Weapon_rotation.rotation)
+		impulse_direction = impulse_direction.normalized()		
+		bullet.apply_impulse(impulse_direction * 1000)
 		
 #Système de gravité et déplacements basiques
 func _physics_process(delta):
