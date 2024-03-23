@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl10f7xsnrdre"]
+
+[ext_resource type="PackedScene" uid="uid://d3dqg04t0o8rt" path="res://scene/player.tscn" id="1_a2ma8"]
+[ext_resource type="PackedScene" uid="uid://dm8ytjcalulkt" path="res://scripts/portal.tscn" id="2_uh7lo"]
+[ext_resource type="PackedScene" uid="uid://dmaqe82l0c02a" path="res://scripts/portal_2.tscn" id="3_ih324"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_e8dmn"]
+size = Vector2(1000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lrtg"]
+size = Vector2(1001, 99)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_a2ma8")]
+position = Vector2(662, 494)
+
+[node name="PLatform" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PLatform"]
+modulate = Color(0.168627, 0.168627, 0.168627, 1)
+position = Vector2(610, 594)
+mesh = SubResource("QuadMesh_e8dmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLatform"]
+position = Vector2(610.5, 593.5)
+shape = SubResource("RectangleShape2D_4lrtg")
+
+[node name="PLatform2" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PLatform2"]
+modulate = Color(0.168627, 0.168627, 0.168627, 1)
+position = Vector2(1162, 142)
+rotation = 1.5708
+mesh = SubResource("QuadMesh_e8dmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLatform2"]
+position = Vector2(1162.5, 141.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_4lrtg")
+
+[node name="PLatform3" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PLatform3"]
+modulate = Color(0.168627, 0.168627, 0.168627, 1)
+position = Vector2(59, 142)
+rotation = 1.5708
+mesh = SubResource("QuadMesh_e8dmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLatform3"]
+position = Vector2(59.5, 141.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_4lrtg")
+
+[node name="PLatform4" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PLatform4"]
+modulate = Color(0.168627, 0.168627, 0.168627, 1)
+position = Vector2(611, -308)
+mesh = SubResource("QuadMesh_e8dmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLatform4"]
+position = Vector2(611.5, -308.5)
+shape = SubResource("RectangleShape2D_4lrtg")
+
+[node name="portal" parent="." instance=ExtResource("2_uh7lo")]
+position = Vector2(922, 512)
+rotation = -2.35619
+
+[node name="portal2" parent="." instance=ExtResource("3_ih324")]
+position = Vector2(276, 513)
+rotation = -1.12225
