@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://nnkls76shl42"]
+[gd_scene load_steps=13 format=3 uid="uid://nnkls76shl42"]
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_inlkx"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="2_q871a"]
 [ext_resource type="Texture2D" uid="uid://ct8jb0ria3aop" path="res://assets/pistol_blue.png" id="3_cihyj"]
 [ext_resource type="Texture2D" uid="uid://d2luaqxhvde8g" path="res://assets/point.png" id="4_eba5g"]
 [ext_resource type="PackedScene" uid="uid://br0w4xn2w3ch8" path="res://objects/Simple_Bloc.tscn" id="5_i3455"]
+[ext_resource type="PackedScene" uid="uid://dk2ftcycqtrul" path="res://objects/ball.tscn" id="6_bya1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5cjt"]
 size = Vector2(14, 14)
@@ -124,5 +125,11 @@ position = Vector2(476, 335)
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("5_i3455")]
 position = Vector2(528, 348)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("6_bya1v")]
+position = Vector2(420, 329)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("6_bya1v")]
+position = Vector2(464, 287)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
