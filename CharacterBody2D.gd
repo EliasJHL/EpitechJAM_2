@@ -28,9 +28,10 @@ func fire():
 		get_tree().get_root().add_child(bullet)
 		#Application d'une impulsion
 		var impulse_direction = Vector2.RIGHT.rotated($Weapon_rotation.rotation)
-		impulse_direction = impulse_direction.normalized()		
+		impulse_direction = impulse_direction.normalized()
 		bullet.apply_impulse(impulse_direction * 1000)
 		
+#Effet de camera pour ajouter de la vie au gameplay
 func camera_shake():
 	var target_position = get_global_mouse_position()
 	$Camera2D.global_position = $Player_Sprite.global_position + target_position / 40
