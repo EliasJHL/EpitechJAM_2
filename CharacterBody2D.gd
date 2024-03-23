@@ -31,6 +31,10 @@ func fire():
 		impulse_direction = impulse_direction.normalized()		
 		bullet.apply_impulse(impulse_direction * 1000)
 		
+func camera_shake():
+	var target_position = get_global_mouse_position()
+	$Camera2D.global_position = $Player_Sprite.global_position + target_position / 40
+		
 #Système de gravité et déplacements basiques
 func _physics_process(delta):
 	if not is_on_floor():
@@ -46,6 +50,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	fire() #Appel du check s'il y a eu un tir
+	camera_shake() #Mouvements de la caméra
 	move_and_slide()
 
 #Timer ajouté pour ne pas pouvoir spam
