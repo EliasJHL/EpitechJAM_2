@@ -37,12 +37,34 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
-		if velocity.x > direction * SPEED && Global.take_portal == true:
-			velocity.x -= 10
-		elif velocity.x < direction * SPEED && Global.take_portal == true:
-			velocity.x += 10
-		else:
-			velocity.x = direction * SPEED
+		if Global.gravity == 0:
+			if velocity.x > direction * SPEED && Global.take_portal == true:
+				velocity.x -= 10
+			elif velocity.x < direction * SPEED && Global.take_portal == true:
+				velocity.x += 10
+			else:
+				velocity.x = direction * SPEED
+		if Global.gravity == 1:
+			if velocity.x > -direction * SPEED && Global.take_portal == true:
+				velocity.x -= 10
+			elif velocity.x < -direction * SPEED && Global.take_portal == true:
+				velocity.x += 10
+			else:
+				velocity.x = -direction * SPEED
+		if Global.gravity == 2:
+			if velocity.y > direction * SPEED && Global.take_portal == true:
+				velocity.y -= 10
+			elif velocity.y < direction * SPEED && Global.take_portal == true:
+				velocity.y += 10
+			else:
+				velocity.y = -direction * SPEED
+		if Global.gravity == 3:
+			if velocity.y > direction * SPEED && Global.take_portal == true:
+				velocity.y -= 10
+			elif velocity.y < direction * SPEED && Global.take_portal == true:
+				velocity.y += 10
+			else:
+				velocity.y = direction * SPEED
 	else:
 		if Global.take_portal == true:
 			pass
