@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://i76y5ki0t1x"]
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_uw7qo"]
-[ext_resource type="Texture2D" uid="uid://da8o2v36ldokh" path="res://assets/portal.png" id="2_jevom"]
+[ext_resource type="Texture2D" uid="uid://3c0hvk1jjvpc" path="res://assets/cooltext454469018064134.png" id="2_0ffen"]
 [ext_resource type="Texture2D" uid="uid://c0dbe112ss8qv" path="res://assets/icon.svg" id="3_eppy8"]
 [ext_resource type="Texture2D" uid="uid://cghvfr2jmvcgo" path="res://assets/epi_logo.png" id="4_s28rc"]
 
@@ -56,16 +56,15 @@ Elias J. HAJJAR LLAUQUEN"
 [node name="Label2" type="Label" parent="Control"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 978.0
-offset_top = 569.0
-offset_right = 1144.0
-offset_bottom = 592.0
+offset_left = 975.0
+offset_top = 570.0
+offset_right = 1141.0
+offset_bottom = 593.0
 text = "Made for Epitech JAM"
 
 [node name="Portal" type="Sprite2D" parent="."]
-position = Vector2(574, 147)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_jevom")
+position = Vector2(573, 166)
+texture = ExtResource("2_0ffen")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 323)
