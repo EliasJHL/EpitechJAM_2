@@ -13,7 +13,7 @@ size = Vector2(1001, 99)
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_a2ma8")]
-position = Vector2(227, 456)
+position = Vector2(662, 494)
 
 [node name="PLatform" type="StaticBody2D" parent="."]
 
@@ -64,9 +64,9 @@ position = Vector2(611.5, -308.5)
 shape = SubResource("RectangleShape2D_4lrtg")
 
 [node name="portal" parent="." instance=ExtResource("2_uh7lo")]
-position = Vector2(852, 511)
-rotation = 3.66519
+position = Vector2(922, 512)
+rotation = -2.35619
 
 [node name="portal2" parent="." instance=ExtResource("3_ih324")]
-position = Vector2(331, 508)
-rotation = -0.560251
+position = Vector2(276, 513)
+rotation = -1.12225

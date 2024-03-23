@@ -18,6 +18,6 @@ mesh = SubResource("QuadMesh_5dx8v")
 shape = SubResource("RectangleShape2D_vl104")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(42, 34)
+position = Vector2(62, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
