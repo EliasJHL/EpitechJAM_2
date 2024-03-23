@@ -42,6 +42,8 @@ texture = ExtResource("1_7p8sb")
 [node name="Shoot_Point" type="Marker2D" parent="player/Weapon_rotation/Weapon"]
 position = Vector2(333.913, 0)
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(448, 386)
 physics_material_override = SubResource("PhysicsMaterial_7r4rq")
