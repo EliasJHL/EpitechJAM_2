@@ -27,6 +27,8 @@ func _on_area_2d_body_entered(body):
 		call_deferred("_create_portal_blue", blue_path)
 	elif body.is_in_group("Portail_OK") and self.orange:
 		call_deferred("_create_portal_orange", orange_path)
+	elif body.is_in_group("Player_Body"):
+		queue_free()
 
 func _create_portal_orange(portal_path):
 	var portal = portal_path.instantiate()

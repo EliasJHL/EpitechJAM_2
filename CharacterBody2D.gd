@@ -62,7 +62,14 @@ func fire():
 func camera_shake():
 	var target_position = get_global_mouse_position()
 	$Camera2D.global_position = $Player_Sprite.global_position + target_position / 40
-		
+
+#Au cas où le joueur tombe	
+func check_fall():
+	#print($Player_Sprite.global_position.x)
+	if $Player_Sprite.global_position.y > 1000:
+		var player = get_node("../player")
+		player.global_position = get_node("../Spawn").global_position
+
 #Système de gravité et déplacements basiques
 func _physics_process(delta):
 	if not is_on_floor():
@@ -77,6 +84,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	check_fall() #Check si le joueur est tombé dans le "void"
 	fire() #Appel du check s'il y a eu un tir
 	camera_shake() #Mouvements de la caméra
 	move_and_slide()

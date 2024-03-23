@@ -89,4 +89,7 @@ position = Vector2(1.52588e-05, 1)
 scale = Vector2(0.0375, 0.810417)
 texture = ExtResource("1_7p8sb")
 
+[node name="Spawn" type="Marker2D" parent="."]
+position = Vector2(251, 340)
+
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
