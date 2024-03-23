@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://i76y5ki0t1x"]
+
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://blank.jpg" id="1_uw7qo"]
+[ext_resource type="Texture2D" uid="uid://da8o2v36ldokh" path="res://portal.png" id="2_jevom"]
+
+[node name="Start_Menu" type="Node2D"]
+
+[node name="Blank" type="Sprite2D" parent="."]
+position = Vector2(585, 337)
+scale = Vector2(2.7625, 1.69375)
+texture = ExtResource("1_uw7qo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="start_button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -38.5
+offset_right = 128.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+
+[node name="options_button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 384.0
+offset_right = 659.0
+offset_bottom = 415.0
+text = "Options"
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 542.0
+offset_right = 552.0
+offset_bottom = 643.0
+text = "Made by : 
+Pierrik CLARY,
+Enzo LOBATO COUTINHO,
+Elias J. HAJJAR LLAUQUEN"
+
+[node name="Label2" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 1018.0
+offset_top = 619.0
+offset_right = 1144.0
+offset_bottom = 642.0
+text = "For Epitech JAM"
+
+[node name="Portal" type="Sprite2D" parent="."]
+position = Vector2(574, 147)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jevom")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 323)
