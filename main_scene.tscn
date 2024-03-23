@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_roqg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5cjt"]
+size = Vector2(16, 16)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7r4rq"]
 
@@ -18,7 +19,7 @@ size = Vector2(20, 389)
 
 [node name="MainScene" type="Node2D"]
 
-[node name="player" type="CharacterBody2D" parent="."]
+[node name="player" type="CharacterBody2D" parent="." groups=["Player_Body"]]
 position = Vector2(355, 354)
 script = ExtResource("2_roqg8")
 
@@ -39,9 +40,9 @@ scale = Vector2(0.0179687, 0.00208333)
 texture = ExtResource("1_7p8sb")
 
 [node name="Shoot_Point" type="Marker2D" parent="player/Weapon_rotation/Weapon"]
-position = Vector2(222.609, 0)
+position = Vector2(333.913, 0)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(448, 386)
 physics_material_override = SubResource("PhysicsMaterial_7r4rq")
 
@@ -52,7 +53,7 @@ shape = SubResource("RectangleShape2D_bc33s")
 scale = Vector2(1.0375, 0.0625)
 texture = ExtResource("1_7p8sb")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(706, 187)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
@@ -64,7 +65,7 @@ position = Vector2(-4.42504e-05, -2.49998)
 scale = Vector2(0.0375, 0.810417)
 texture = ExtResource("1_7p8sb")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(622, 121)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
