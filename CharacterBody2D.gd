@@ -70,6 +70,15 @@ func check_fall():
 		var player = get_node("../player")
 		player.global_position = get_node("../Spawn").global_position
 
+#Changer la couleur du pistolet par rapport à la couleur du portail à placer
+func change_weapon_color():
+	if portal_status["last_portal"] == "None":
+		$Weapon_rotation/Weapon.texture = load("res://assets/pistol_blue.png")
+	elif  portal_status["last_portal"] == "Blue":
+		$Weapon_rotation/Weapon.texture = load("res://assets/pistol_orange.png")
+	elif portal_status["last_portal"] == "Orange":
+		$Weapon_rotation/Weapon.texture = load("res://assets/pistol_blue.png")
+
 #Système de gravité et déplacements basiques
 func _physics_process(delta):
 	if not is_on_floor():
@@ -85,6 +94,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	check_fall() #Check si le joueur est tombé dans le "void"
+	change_weapon_color() #Changer la couleur de l'arme
 	fire() #Appel du check s'il y a eu un tir
 	camera_shake() #Mouvements de la caméra
 	move_and_slide()

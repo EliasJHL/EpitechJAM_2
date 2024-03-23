@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_7p8sb"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_roqg8"]
-[ext_resource type="Texture2D" uid="uid://bjkewr1wxc3yj" path="res://assets/pistol_little.png" id="3_yewub"]
+[ext_resource type="Texture2D" uid="uid://ct8jb0ria3aop" path="res://assets/pistol_blue.png" id="3_14agy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5cjt"]
 size = Vector2(14, 14)
@@ -38,12 +38,12 @@ texture = ExtResource("1_7p8sb")
 
 [node name="Weapon" type="Sprite2D" parent="player/Weapon_rotation"]
 z_index = 90
-position = Vector2(16, 2.00001)
-scale = Vector2(0.3, 0.286)
-texture = ExtResource("3_yewub")
+position = Vector2(12, -0.99999)
+scale = Vector2(0.25, 0.238)
+texture = ExtResource("3_14agy")
 
 [node name="Shoot_Point" type="Marker2D" parent="player/Weapon_rotation/Weapon"]
-position = Vector2(16.6667, -10.4895)
+position = Vector2(36, 6.29425e-05)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(1.5, 1.5)
