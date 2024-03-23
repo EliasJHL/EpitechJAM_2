@@ -18,9 +18,13 @@ func _process(delta):
 #Fonction pour placer les portails
 func fire():
 	if Input.is_action_just_pressed("Place_Portal"):
+		print("test")
 		#création d'une instance de la balle
 		var bullet = bullet_path.instantiate()
+		#Position de la balle
 		bullet.global_position = $Weapon_rotation/Weapon/Shoot_Point.global_position
+		#Rotation de la balle par rapport au joueur
+		bullet.rotate($Weapon_rotation.rotation)
 		#Ajout des clones des balles sur la scene
 		get_tree().get_root().add_child(bullet)
 		
@@ -40,3 +44,7 @@ func _physics_process(delta):
 
 	fire() #Appel du check s'il y a eu un tir
 	move_and_slide()
+
+#Timer ajouté pour ne pas pouvoir spam
+func _on_timer_timeout():
+	pass
