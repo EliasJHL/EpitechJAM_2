@@ -64,17 +64,25 @@ offset_right = 1141.0
 offset_bottom = 593.0
 text = "Made for Epitech JAM"
 
+[node name="LinkButton" type="LinkButton" parent="Control"]
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 6.0
+offset_right = 1146.0
+offset_bottom = 70.0
+uri = "https://godotengine.org/"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/LinkButton"]
+position = Vector2(30, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_boid2")
+
 [node name="Portal" type="Sprite2D" parent="."]
 position = Vector2(573, 166)
 texture = ExtResource("3_86fcp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 323)
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1113, 39)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_boid2")
 
 [node name="EpiLogo" type="Sprite2D" parent="."]
 position = Vector2(1058, 620)
