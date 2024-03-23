@@ -1,8 +1,16 @@
 extends CharacterBody2D
 
-
+#Config du player
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+
+var portal_status = {
+	"last_portal": "None",
+	"portal_count": 0
+}
+
+var blue = false
+var orange = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -30,7 +38,26 @@ func fire():
 		var impulse_direction = Vector2.RIGHT.rotated($Weapon_rotation.rotation)
 		impulse_direction = impulse_direction.normalized()
 		bullet.apply_impulse(impulse_direction * 1000)
-		
+		# Création & destruction des murs (mécanique de portal)
+		if portal_status["last_portal"] == "None":
+			bullet.blue = true
+			bullet.orange = false
+			portal_status["last_portal"] = "Blue"
+		elif portal_status["last_portal"] == "Blue":
+			for wall in bullet.created_walls_o:
+					wall.queue_free()
+			bullet.created_walls_o.clear()
+			bullet.blue = false
+			bullet.orange = true
+			portal_status["last_portal"] = "Orange"
+		elif portal_status["last_portal"] == "Orange":
+			for wall in bullet.created_walls_b:
+					wall.queue_free()
+			bullet.created_walls_b.clear()
+			bullet.blue = true
+			bullet.orange = false
+			portal_status["last_portal"] = "Blue"
+
 #Effet de camera pour ajouter de la vie au gameplay
 func camera_shake():
 	var target_position = get_global_mouse_position()
