@@ -27,11 +27,13 @@ func _on_area_2d_body_entered(body):
 		call_deferred("_create_portal_blue", blue_path)
 	elif body.is_in_group("Portail_OK") and self.orange:
 		call_deferred("_create_portal_orange", orange_path)
+	elif body.is_in_group("Player_Body"):
+		queue_free()
 
 func _create_portal_orange(portal_path):
 	var portal = portal_path.instantiate()
 	portal.global_position = self.global_position
-	portal.global_rotation = self.global_rotation
+	#portal.global_rotation = self.global_rotation Rotation du portail
 	get_tree().get_root().add_child(portal)
 	created_walls_o.append(portal)
 	self.queue_free()
@@ -39,7 +41,7 @@ func _create_portal_orange(portal_path):
 func _create_portal_blue(portal_path):
 	var portal = portal_path.instantiate()
 	portal.global_position = self.global_position
-	portal.global_rotation = self.global_rotation
+	#portal.global_rotation = self.global_rotation Rotation du portail
 	get_tree().get_root().add_child(portal)
 	created_walls_b.append(portal)
 	self.queue_free()
