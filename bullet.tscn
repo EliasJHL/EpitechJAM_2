@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ougl4333lixe"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_5lsbw"]
-[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://blank.jpg" id="1_pen15"]
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_pen15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwil1"]
 size = Vector2(8, 2)
@@ -32,7 +32,6 @@ collision_priority = 399.685
 shape = SubResource("RectangleShape2D_gyl35")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
