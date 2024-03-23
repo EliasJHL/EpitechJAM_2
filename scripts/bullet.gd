@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-const blue_path = preload("res://blue_portal.tscn")
-const orange_path = preload("res://orange_portal.tscn")
+const blue_path = preload("res://scenes/blue_portal.tscn")
+const orange_path = preload("res://scenes/orange_portal.tscn")
 
 static var created_walls_b = []
 static var created_walls_o = []
@@ -24,24 +24,24 @@ func _on_body_entered(body):
 #Gestion de contact avec un mur compatible
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Portail_OK") and self.blue:
-		call_deferred("_create_portal_blue", blue_path)
+		call_deferred("_create_portal_blue", blue_path, body)
 	elif body.is_in_group("Portail_OK") and self.orange:
-		call_deferred("_create_portal_orange", orange_path)
+		call_deferred("_create_portal_orange", orange_path, body)
 	elif body.is_in_group("Player_Body"):
 		queue_free()
 
-func _create_portal_orange(portal_path):
+func _create_portal_orange(portal_path, body):
 	var portal = portal_path.instantiate()
 	portal.global_position = self.global_position
-	#portal.global_rotation = self.global_rotation Rotation du portail
+	portal.global_rotation = body.global_rotation #Rotation du portail
 	get_tree().get_root().add_child(portal)
 	created_walls_o.append(portal)
 	self.queue_free()
 
-func _create_portal_blue(portal_path):
+func _create_portal_blue(portal_path, body):
 	var portal = portal_path.instantiate()
 	portal.global_position = self.global_position
-	#portal.global_rotation = self.global_rotation Rotation du portail
+	portal.global_rotation = body.global_rotation #Rotation du portail
 	get_tree().get_root().add_child(portal)
 	created_walls_b.append(portal)
 	self.queue_free()
