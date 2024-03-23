@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ougl4333lixe"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_5lsbw"]
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_pen15"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwil1"]
+size = Vector2(8, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyl35"]
+size = Vector2(10, 4)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_priority = 23.095
+mass = 0.01
+gravity_scale = 0.0
+continuous_cd = 1
+script = ExtResource("1_5lsbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.894118, 0.882353, 0, 1)
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(0.0166667, 0.00416668)
+texture = ExtResource("1_pen15")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fwil1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_priority = 399.685
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gyl35")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
