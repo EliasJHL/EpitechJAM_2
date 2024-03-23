@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://nnkls76shl42"]
+[gd_scene load_steps=9 format=3 uid="uid://nnkls76shl42"]
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://blank.jpg" id="1_7p8sb"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_roqg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5cjt"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ken8"]
 size = Vector2(16, 16)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7r4rq"]
@@ -44,6 +47,11 @@ position = Vector2(333.913, 0)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 
+[node name="Area2D" type="Area2D" parent="player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Area2D"]
+shape = SubResource("RectangleShape2D_7ken8")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(448, 386)
 physics_material_override = SubResource("PhysicsMaterial_7r4rq")
@@ -78,3 +86,5 @@ shape = SubResource("RectangleShape2D_t20jl")
 position = Vector2(1.52588e-05, 1)
 scale = Vector2(0.0375, 0.810417)
 texture = ExtResource("1_7p8sb")
+
+[connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]
