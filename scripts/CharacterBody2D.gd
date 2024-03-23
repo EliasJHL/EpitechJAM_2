@@ -9,6 +9,8 @@ var portal_status = {
 	"portal_count": 0
 }
 
+@onready var sprite_2d = $Player_Sprite
+
 var blue = false
 var orange = false
 
@@ -93,12 +95,15 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		sprite_2d.animation = "new_animation"
 
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * SPEED
+		sprite_2d.animation = "new_animation"
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		sprite_2d.animation = "new_animation"
 	
 	#Retourne l'arme pour qu'il vise toujours bien
 	weapon_sprite.flip_h = isLeft # NON FONCTIONNEL

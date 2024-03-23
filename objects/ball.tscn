@@ -5,6 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7t2o"]
 
 [node name="RigidBody2D" type="RigidBody2D"]
+input_pickable = true
 mass = 0.01
 gravity_scale = 0.652
 
