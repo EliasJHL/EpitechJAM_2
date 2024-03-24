@@ -91,11 +91,13 @@ func change_weapon_color():
 #Système de gravité et déplacements basiques
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor() and not is_on_ceiling() and not is_on_wall():
+	if not is_on_floor():
 		if Global.gravity == 0:
 			velocity.y += gravity * delta
+	if not is_on_ceiling():
 		if Global.gravity == 1:
 			velocity.y -= gravity * delta
+	if not is_on_wall():
 		if Global.gravity == 2:
 			velocity.x += gravity * delta
 		if Global.gravity == 3:
@@ -105,11 +107,13 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump"):
-		if (is_on_floor() || is_on_ceiling() || is_on_wall()):
+		if (is_on_floor()):
 			if Global.gravity == 0:
 				velocity.y = JUMP_VELOCITY
+		if (is_on_ceiling()):
 			if Global.gravity == 1:
 				velocity.y = -JUMP_VELOCITY
+		if (is_on_wall()):
 			if Global.gravity == 2:
 				velocity.x = JUMP_VELOCITY
 			if Global.gravity == 3:

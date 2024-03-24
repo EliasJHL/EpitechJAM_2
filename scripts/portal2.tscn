@@ -19,7 +19,7 @@ texture = ExtResource("1_pnn2l")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(0.0117647, 0, 1, 1)
-position = Vector2(0, -16)
+position = Vector2(0, -20)
 scale = Vector2(0.00625001, 0.00833333)
 texture = ExtResource("1_pnn2l")
 
@@ -33,7 +33,7 @@ script = ExtResource("2_mhi4v")
 shape = SubResource("RectangleShape2D_u6m5a")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -20)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.439

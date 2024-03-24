@@ -30,7 +30,7 @@ script = ExtResource("2_waqay")
 shape = SubResource("RectangleShape2D_nbvmx")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -20)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 70.24

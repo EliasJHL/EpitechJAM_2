@@ -5,6 +5,7 @@ var portal_rotation: float
 var haut = Vector2(0.707107, -0.707107)
 var haut2 = Vector2(-0.707107, -0.707107)
 
+
 func _ready():
 	pass
 	#portalpos = get_tree().current_scene.get_node("Area2D/Marker2D").global_position
@@ -26,9 +27,9 @@ func _on_body_entered(body):
 		pos_dest.y -= 5
 		pos_dest.x -= 2
 		body.global_position = pos_dest
-		var jump_direction = Vector2.RIGHT.rotated(portal_rotation)
+		var jump_direction = Vector2.UP.rotated(portal_rotation)
 		check_gravity(jump_direction)
 		if body.name == "player":
-			body.velocity = jump_direction * 140
+			body.velocity = jump_direction * 300
 		Global.take_portal = true
 		get_tree().current_scene.get_node("portal1/Timer").start()
