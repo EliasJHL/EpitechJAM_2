@@ -13,13 +13,13 @@ func _ready():
 
 func check_gravity(jump_direction):
 	if round(rad_to_deg(jump_direction.angle())) >= -45 && round(rad_to_deg(jump_direction.angle())) <= 45:
-		Global.gravity = 2
+		Global.gravity = 0
 	if round(rad_to_deg(jump_direction.angle())) >= 135 || round(rad_to_deg(jump_direction.angle())) <= -135:
-		Global.gravity = 3
+		Global.gravity = 0
 	if round(rad_to_deg(jump_direction.angle())) >= 45 && round(rad_to_deg(jump_direction.angle())) <= 135:
 		Global.gravity = 0
 	if round(rad_to_deg(jump_direction.angle())) >= -135 && round(rad_to_deg(jump_direction.angle())) <= -45:
-		Global.gravity = 1
+		Global.gravity = 0
 
 func _on_body_entered(body):
 	portalpos = get_tree().current_scene.get_node("portal2/Marker2D").global_position

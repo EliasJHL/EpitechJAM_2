@@ -2699,7 +2699,7 @@ layer_0/tile_data = PackedInt32Array(1900549, 65536, 0, 1900550, 65536, 0, 19005
 position = Vector2(224, 450)
 
 [node name="player" parent="." instance=ExtResource("6_pymj5")]
-position = Vector2(224, 448)
+position = Vector2(85, 388)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(-1857, 455)
@@ -2719,10 +2719,10 @@ position = Vector2(-1987, 454)
 position = Vector2(-1765, 452)
 
 [node name="portal1" parent="." instance=ExtResource("8_7x45i")]
-position = Vector2(-2011, 399)
+position = Vector2(685, 619)
 
 [node name="portal2" parent="." instance=ExtResource("9_5kvhn")]
-position = Vector2(-1852, 400)
+position = Vector2(724, 618)
 
 [node name="marche" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_4ngjh")
