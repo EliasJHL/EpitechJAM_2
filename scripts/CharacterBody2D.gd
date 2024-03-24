@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 #Config du player
-const SPEED = 150.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
 
 var portal_status = {
 	"last_portal": "None",
@@ -71,7 +71,7 @@ func camera_shake():
 #Au cas où le joueur tombe	
 func check_fall():
 	#print($Player_Sprite.global_position.x)
-	if $Player_Sprite.global_position.y > 4000:
+	if $Player_Sprite.global_position.y > 1000:
 		var player = get_node("../player")
 		player.global_position = get_node("../Spawn").global_position
 
