@@ -35,4 +35,7 @@ shape = SubResource("RectangleShape2D_u6m5a")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -16)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.439
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

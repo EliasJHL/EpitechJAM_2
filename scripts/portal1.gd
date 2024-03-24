@@ -18,6 +18,9 @@ func check_gravity(jump_direction):
 func _on_body_entered(body):
 	portalpos = get_tree().current_scene.get_node("portal2/Marker2D").global_position
 	portal_rotation = get_tree().current_scene.get_node("portal2").rotation
+	if !get_tree().current_scene.get_node("portal1/Timer").is_stopped:
+		print("STOP")
+		return
 	if body.name == "player" or body.is_in_group("Object"):
 		var pos_dest = portalpos
 		pos_dest.y -= 5
@@ -26,5 +29,6 @@ func _on_body_entered(body):
 		var jump_direction = Vector2.RIGHT.rotated(portal_rotation)
 		check_gravity(jump_direction)
 		if body.name == "player":
-			body.velocity = jump_direction * 70
+			body.velocity = jump_direction * 140
 		Global.take_portal = true
+		get_tree().current_scene.get_node("portal1/Timer").start()

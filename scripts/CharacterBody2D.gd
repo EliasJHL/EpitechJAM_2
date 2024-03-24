@@ -91,7 +91,7 @@ func change_weapon_color():
 #Système de gravité et déplacements basiques
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor() && not is_on_ceiling() && not is_on_wall():
+	if not is_on_floor() and not is_on_ceiling() and not is_on_wall():
 		if Global.gravity == 0:
 			velocity.y += gravity * delta
 		if Global.gravity == 1:

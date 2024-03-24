@@ -33,7 +33,6 @@ func _on_area_2d_body_entered(body):
 func _create_portal_orange(portal_path, body):
 	var portal1 = get_tree().current_scene.get_node("portal1")
 	portal1.global_position = self.global_position
-	print(global_rotation)
 	portal1.global_rotation = body.global_rotation #Rotation du portail
 	self.queue_free()
 
