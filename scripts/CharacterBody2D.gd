@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 #Config du player
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 100.0
+const JUMP_VELOCITY = -300.0
 
 var portal_status = {
 	"last_portal": "None",
