@@ -71,7 +71,7 @@ func camera_shake():
 #Au cas où le joueur tombe	
 func check_fall():
 	#print($Player_Sprite.global_position.x)
-	if $Player_Sprite.global_position.y > 1000:
+	if $Player_Sprite.global_position.y > 5000:
 		var player = get_node("../player")
 		player.global_position = get_node("../Spawn").global_position
 
