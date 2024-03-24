@@ -17,7 +17,7 @@ Nous devions respecter au moins une de ces contraintes :
 
 ## Présentation du jeu
 
-Le jeu est intitulé [Nom avenir]. Il s'agit d'un jeu inspiré du jeu Portal.
+Le jeu est intitulé Pixel Portal. Il s'agit d'un jeu inspiré du jeu Portal.
 
 ## Technologies Utilisées
 
