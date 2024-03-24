@@ -1,0 +1,133 @@
+[gd_scene load_steps=3 format=3 uid="uid://ylm0k00nxgux"]
+
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_ckbky"]
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="2_jvl7o"]
+
+[node name="options" type="Node2D"]
+script = ExtResource("1_ckbky")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(588, 325)
+scale = Vector2(2.62917, 1.60208)
+texture = ExtResource("2_jvl7o")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Left_config" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 229.0
+offset_right = 588.0
+offset_bottom = 260.0
+text = "Left"
+
+[node name="Right" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 283.0
+offset_right = 589.0
+offset_bottom = 314.0
+text = "Right
+"
+
+[node name="Jump" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 337.0
+offset_right = 590.0
+offset_bottom = 368.0
+text = "Jump"
+
+[node name="Fire" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 396.0
+offset_right = 591.0
+offset_bottom = 427.0
+text = "Fire"
+
+[node name="Back" type="Button" parent="Control"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 30.0
+offset_right = 149.0
+offset_bottom = 61.0
+text = "<< BACK"
+
+[node name="Title" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -173.0
+offset_top = 151.0
+offset_right = 1.0
+offset_bottom = 174.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+text = "Keybind Configuration"
+
+[node name="left_text" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 609.0
+offset_top = 232.0
+offset_right = 706.0
+offset_bottom = 255.0
+text = "Current → W"
+
+[node name="right_text" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 608.0
+offset_top = 286.0
+offset_right = 705.0
+offset_bottom = 309.0
+text = "Current → W"
+
+[node name="jump_text" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 608.0
+offset_top = 340.0
+offset_right = 705.0
+offset_bottom = 363.0
+text = "Current → W"
+
+[node name="fire_text" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 608.0
+offset_top = 399.0
+offset_right = 705.0
+offset_bottom = 422.0
+text = "Current → W"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(584, 322)
+scale = Vector2(1.35208, 1.34792)
+texture = ExtResource("2_jvl7o")
+
+[node name="Control" type="Control" parent="Control/Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/Sprite2D/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -91.7103
+offset_top = -11.1283
+offset_right = 92.2897
+offset_bottom = 11.8717
+text = "Waiting the new input..."
+
+[connection signal="pressed" from="Control/Left_config" to="." method="_on_left_config_pressed"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]

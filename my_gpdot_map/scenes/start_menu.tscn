@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://i76y5ki0t1x"]
+
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_qn1e7"]
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="2_xivhp"]
+[ext_resource type="Texture2D" uid="uid://3c0hvk1jjvpc" path="res://assets/cooltext454469018064134.png" id="3_86fcp"]
+[ext_resource type="Texture2D" uid="uid://c0dbe112ss8qv" path="res://assets/icon.svg" id="4_boid2"]
+[ext_resource type="Texture2D" uid="uid://cghvfr2jmvcgo" path="res://assets/epi_logo.png" id="5_8jg1t"]
+
+[node name="Start_Menu" type="Node2D"]
+script = ExtResource("1_qn1e7")
+
+[node name="Blank" type="Sprite2D" parent="."]
+position = Vector2(578.5, 322)
+scale = Vector2(6.12292, 3.7625)
+texture = ExtResource("2_xivhp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="start_button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -38.0
+offset_right = 128.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+
+[node name="options_button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 384.0
+offset_right = 659.0
+offset_bottom = 415.0
+text = "Options"
+
+[node name="Label" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 542.0
+offset_right = 552.0
+offset_bottom = 643.0
+text = "Made by : 
+Pierrik CLARY,
+Enzo LOBATO COUTINHO,
+Elias J. HAJJAR LLAUQUEN"
+
+[node name="Label2" type="Label" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 975.0
+offset_top = 570.0
+offset_right = 1141.0
+offset_bottom = 593.0
+text = "Made for Epitech JAM"
+
+[node name="LinkButton" type="LinkButton" parent="Control"]
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 6.0
+offset_right = 1146.0
+offset_bottom = 70.0
+uri = "https://godotengine.org/"
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/LinkButton"]
+position = Vector2(30, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_boid2")
+
+[node name="Portal" type="Sprite2D" parent="."]
+position = Vector2(573, 166)
+texture = ExtResource("3_86fcp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 323)
+
+[node name="EpiLogo" type="Sprite2D" parent="."]
+position = Vector2(1058, 620)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_8jg1t")
+
+[connection signal="pressed" from="Control/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Control/options_button" to="." method="_on_options_button_pressed"]

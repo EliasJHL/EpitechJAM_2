@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk2ftcycqtrul"]
+
+[ext_resource type="Texture2D" uid="uid://cdkhe0wmgj715" path="res://assets/ball.png" id="1_riqxm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7t2o"]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+input_pickable = true
+mass = 0.01
+gravity_scale = 0.652
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o7t2o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8.34465e-07, -1.57952e-06)
+scale = Vector2(0.0107623, 0.0112045)
+texture = ExtResource("1_riqxm")
