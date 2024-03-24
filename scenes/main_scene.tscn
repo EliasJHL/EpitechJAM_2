@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://nnkls76shl42"]
+[gd_scene load_steps=28 format=3 uid="uid://nnkls76shl42"]
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_inlkx"]
 [ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="2_q871a"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://br0w4xn2w3ch8" path="res://objects/Simple_Bloc.tscn" id="5_i3455"]
 [ext_resource type="Texture2D" uid="uid://dswdu56s4luch" path="res://assets/robot_portale_run.png" id="5_v045a"]
 [ext_resource type="PackedScene" uid="uid://dk2ftcycqtrul" path="res://objects/ball.tscn" id="6_bya1v"]
+[ext_resource type="PackedScene" uid="uid://byqi3daw1fexd" path="res://scripts/portal2.tscn" id="6_jmron"]
+[ext_resource type="PackedScene" uid="uid://bp6f4wl6agaet" path="res://scripts/portal1.tscn" id="7_npg5l"]
+[ext_resource type="PackedScene" uid="uid://ougl4333lixe" path="res://scenes/bullet.tscn" id="10_n34yt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5cjt"]
 size = Vector2(9, 19)
@@ -197,6 +200,32 @@ position = Vector2(-4.42504e-05, -2.49998)
 scale = Vector2(0.0375, 0.810417)
 texture = ExtResource("1_inlkx")
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="." groups=["Portail_OK"]]
+position = Vector2(-2538, 539)
+rotation = 1.60669
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_cpovn")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+position = Vector2(-4.42504e-05, -2.49998)
+scale = Vector2(0.0375, 0.810417)
+texture = ExtResource("1_inlkx")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="." groups=["Portail_OK"]]
+position = Vector2(-2017, 330)
+rotation = -1.58087
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_cpovn")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6"]
+position = Vector2(-4.42504e-05, -2.49998)
+scale = Vector2(0.0375, 0.810417)
+texture = ExtResource("1_inlkx")
+
 [node name="StaticBody2D3" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(622, 121)
 
@@ -212,16 +241,29 @@ texture = ExtResource("1_inlkx")
 [node name="Spawn" type="Marker2D" parent="."]
 position = Vector2(251, 340)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("5_i3455")]
-position = Vector2(476, 335)
+[node name="portal2" parent="." instance=ExtResource("6_jmron")]
+position = Vector2(-1994, 229)
+rotation = -1.57692
 
-[node name="RigidBody2D2" parent="." instance=ExtResource("5_i3455")]
-position = Vector2(528, 348)
+[node name="portal1" parent="." instance=ExtResource("7_npg5l")]
+position = Vector2(-2517, 482)
 
-[node name="RigidBody2D3" parent="." instance=ExtResource("6_bya1v")]
-position = Vector2(420, 329)
+[node name="RigidBody2D" parent="." instance=ExtResource("6_bya1v")]
+position = Vector2(521, 332)
 
-[node name="RigidBody2D4" parent="." instance=ExtResource("6_bya1v")]
-position = Vector2(464, 287)
+[node name="RigidBody2D2" parent="." instance=ExtResource("6_bya1v")]
+position = Vector2(582, 339)
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("5_i3455")]
+position = Vector2(467, 344)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("5_i3455")]
+position = Vector2(306, 337)
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("10_n34yt")]
+position = Vector2(-2054, 328)
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("10_n34yt")]
+position = Vector2(-2417, 534)
 
 [connection signal="body_entered" from="player/Area2D" to="player" method="_on_area_2d_body_entered"]

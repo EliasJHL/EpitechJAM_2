@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://byqi3daw1fexd"]
 
-[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_tcoui"]
-[ext_resource type="Script" path="res://scenes/blue.gd" id="2_36bqo"]
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_pnn2l"]
+[ext_resource type="Script" path="res://scripts/portal2.gd" id="2_mhi4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmv8n"]
 size = Vector2(20, 4)
@@ -9,25 +9,25 @@ size = Vector2(20, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6m5a"]
 size = Vector2(22, 6)
 
-[node name="blue_portal" type="StaticBody2D"]
+[node name="portal2" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0117647, 0, 1, 1)
 position = Vector2(-5.36442e-07, -4.76837e-07)
 scale = Vector2(0.0416667, 0.00833333)
-texture = ExtResource("1_tcoui")
+texture = ExtResource("1_pnn2l")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(0.0117647, 0, 1, 1)
 position = Vector2(0, -16)
 scale = Vector2(0.00625001, 0.00833333)
-texture = ExtResource("1_tcoui")
+texture = ExtResource("1_pnn2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vmv8n")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("2_36bqo")
+script = ExtResource("2_mhi4v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_u6m5a")

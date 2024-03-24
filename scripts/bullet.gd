@@ -1,7 +1,7 @@
 extends RigidBody2D
 
-const blue_path = preload("res://scenes/blue_portal.tscn")
-const orange_path = preload("res://scenes/orange1_portal.tscn")
+const blue_path = preload("res://scripts/portal2.tscn")
+const orange_path = preload("res://scripts/portal1.tscn")
 
 static var created_walls_b = []
 static var created_walls_o = []
@@ -31,19 +31,16 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 
 func _create_portal_orange(portal_path, body):
-	var portal = portal_path.instantiate()
-	portal.global_position = self.global_position
-	portal.global_rotation = self.global_rotation #Rotation du portail
-	get_tree().get_root().add_child(portal)
-	created_walls_o.append(portal)
+	var portal1 = get_tree().current_scene.get_node("portal1")
+	portal1.global_position = self.global_position
+	print(global_rotation)
+	portal1.global_rotation = body.global_rotation #Rotation du portail
 	self.queue_free()
 
 func _create_portal_blue(portal_path, body):
-	var portal = portal_path.instantiate()
-	portal.global_position = self.global_position
-	portal.global_rotation = body.global_rotation #Rotation du portail
-	get_tree().get_root().add_child(portal)
-	created_walls_b.append(portal)
+	var portal2 = get_tree().current_scene.get_node("portal2")
+	portal2.global_position = self.global_position
+	portal2.global_rotation = body.global_rotation #Rotation du portail
 	self.queue_free()
 
 #Ajout d'un timer pour que la balle despawn au bout de 5s

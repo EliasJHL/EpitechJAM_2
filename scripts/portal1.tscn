@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp6f4wl6agaet"]
 
-[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_aqb1w"]
-[ext_resource type="Script" path="res://scenes/orange.gd" id="2_c6yfi"]
+[ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_xgygi"]
+[ext_resource type="Script" path="res://scripts/portal1.gd" id="2_waqay"]
 
 [sub_resource type="GDScript" id="GDScript_a4aq7"]
 
@@ -11,20 +11,20 @@ size = Vector2(20, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbvmx"]
 size = Vector2(22, 6)
 
-[node name="orange1_portal" type="StaticBody2D"]
+[node name="portal1" type="StaticBody2D"]
 script = SubResource("GDScript_a4aq7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.894118, 0.741176, 0.133333, 1)
 position = Vector2(-5.36442e-07, -4.76837e-07)
 scale = Vector2(0.0416667, 0.00833333)
-texture = ExtResource("1_aqb1w")
+texture = ExtResource("1_xgygi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vmv8n")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("2_c6yfi")
+script = ExtResource("2_waqay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_nbvmx")
