@@ -90,21 +90,75 @@ func change_weapon_color():
 
 #Système de gravité et déplacements basiques
 func _physics_process(delta):
+	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
-		sprite_2d.animation = "jump"
+		if Global.gravity == 0:
+			velocity.y += gravity * delta
+	if not is_on_ceiling():
+		if Global.gravity == 1:
+			velocity.y -= gravity * delta
+	if not is_on_wall():
+		if Global.gravity == 2:
+			velocity.x += gravity * delta
+		if Global.gravity == 3:
+			velocity.x -= gravity * delta
+	else:
+		Global.take_portal = false
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		sprite_2d.animation = "jump"
+	# Handle jump.
+	if Input.is_action_just_pressed("Jump"):
+		if (is_on_floor()):
+			if Global.gravity == 0:
+				velocity.y = JUMP_VELOCITY
+		if (is_on_ceiling()):
+			if Global.gravity == 1:
+				velocity.y = -JUMP_VELOCITY
+		if (is_on_wall()):
+			if Global.gravity == 2:
+				velocity.x = JUMP_VELOCITY
+			if Global.gravity == 3:
+				velocity.x = -JUMP_VELOCITY
 
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
-		velocity.x = direction * SPEED
-		sprite_2d.animation = "run"
+		if Global.gravity == 0:
+			if velocity.x > direction * SPEED && Global.take_portal == true:
+				velocity.x -= 10
+			elif velocity.x < direction * SPEED && Global.take_portal == true:
+				velocity.x += 10
+			else:
+				velocity.x = direction * SPEED
+		if Global.gravity == 1:
+			if velocity.x > -direction * SPEED && Global.take_portal == true:
+				velocity.x -= 10
+			elif velocity.x < -direction * SPEED && Global.take_portal == true:
+				velocity.x += 10
+			else:
+				velocity.x = -direction * SPEED
+		if Global.gravity == 2:
+			if velocity.y > direction * SPEED && Global.take_portal == true:
+				velocity.y -= 10
+			elif velocity.y < direction * SPEED && Global.take_portal == true:
+				velocity.y += 10
+			else:
+				velocity.y = -direction * SPEED
+		if Global.gravity == 3:
+			if velocity.y > direction * SPEED && Global.take_portal == true:
+				velocity.y -= 10
+			elif velocity.y < direction * SPEED && Global.take_portal == true:
+				velocity.y += 10
+			else:
+				velocity.y = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		sprite_2d.animation = "default"
+		if Global.take_portal == true:
+			pass
+		else:
+			if Global.gravity == 0 || Global.gravity == 1:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+			if Global.gravity == 2 || Global.gravity == 3:
+				velocity.y = move_toward(velocity.y, 0, SPEED)
+
+	move_and_slide()
 	
 	#Retourne l'arme pour qu'il vise toujours bien
 	weapon_sprite.flip_h = isLeft # NON FONCTIONNEL

@@ -1,5 +1,8 @@
 # {EPITECH} JAM - Godot game 👋 
 
+![Godot Engine](https://img.shields.io/badge/GODOT-%23FFFFFF.svg?style=for-the-badge&logo=godot-engine)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
 Bienvenue dans le projet pour la jam {EPITECH} ! Ce jeu a été créé à l'aide du moteur graphique Godot 4.
 
 ## Contraintes & Thème
