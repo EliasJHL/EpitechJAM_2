@@ -1,0 +1,146 @@
+[gd_scene load_steps=18 format=3 uid="uid://cwlkthw6w0n4e"]
+
+[ext_resource type="Script" path="res://scripts/CharacterBody2D.gd" id="1_3sq85"]
+[ext_resource type="Texture2D" uid="uid://ct8jb0ria3aop" path="res://assets/pistol_blue.png" id="2_6xemj"]
+[ext_resource type="Texture2D" uid="uid://d2luaqxhvde8g" path="res://assets/point.png" id="3_lud4s"]
+[ext_resource type="Texture2D" uid="uid://dswdu56s4luch" path="res://assets/robot_portale_run.png" id="4_g66x4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s8c8c"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m6wer"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7rcm"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(0, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdy4f"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(246, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgmlb"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(0, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlphm"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(123, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1jmd"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(246, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uuvsg"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(369, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myfyo"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(492, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oxir"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(615, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qulxq"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(738, 0, 123, 188)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18gus"]
+atlas = ExtResource("4_g66x4")
+region = Rect2(861, 0, 123, 188)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2l1ul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7rcm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdy4f")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgmlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlphm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1jmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uuvsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myfyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0oxir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qulxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18gus")
+}],
+"loop": true,
+"name": &"run",
+"speed": 16.0
+}]
+
+[node name="player" type="CharacterBody2D" groups=["Player_Body"]]
+position = Vector2(355, 354)
+script = ExtResource("1_3sq85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_s8c8c")
+
+[node name="Weapon_rotation" type="Marker2D" parent="."]
+
+[node name="Weapon" type="Sprite2D" parent="Weapon_rotation"]
+z_index = 90
+position = Vector2(9, 1.00136e-05)
+scale = Vector2(0.25, 0.238)
+texture = ExtResource("2_6xemj")
+
+[node name="Shoot_Point" type="Marker2D" parent="Weapon_rotation/Weapon"]
+position = Vector2(36, 6.29425e-05)
+
+[node name="PointLight2D" type="PointLight2D" parent="Weapon_rotation/Weapon"]
+position = Vector2(7.2, 0)
+scale = Vector2(0.19375, 0.2)
+color = Color(1, 0.737255, 0, 1)
+texture = ExtResource("3_lud4s")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_m6wer")
+
+[node name="Player_Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.23978e-05, -0.999989)
+scale = Vector2(0.123171, 0.123404)
+sprite_frames = SubResource("SpriteFrames_2l1ul")
+animation = &"jump"
+autoplay = "default"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
