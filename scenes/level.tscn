@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dobfpwmq6lpys"]
+[gd_scene load_steps=23 format=3 uid="uid://dobfpwmq6lpys"]
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_cvv2l"]
 [ext_resource type="Texture2D" uid="uid://cyhne1o7ylje6" path="res://assets/tilesheet_snow.png" id="2_62233"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c3erg2sq34ta6" path="res://assets/tilesheet_dungeon.png" id="4_xqxh8"]
 [ext_resource type="Texture2D" uid="uid://dstuvmgs6brm2" path="res://assets/tilesheet_grass.png" id="5_j0hnp"]
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="6_pymj5"]
+[ext_resource type="PackedScene" uid="uid://ougl4333lixe" path="res://scenes/bullet.tscn" id="7_s8f2w"]
+[ext_resource type="PackedScene" uid="uid://bp6f4wl6agaet" path="res://scripts/portal1.tscn" id="8_7x45i"]
+[ext_resource type="PackedScene" uid="uid://byqi3daw1fexd" path="res://scripts/portal2.tscn" id="9_5kvhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh5gk"]
 texture = ExtResource("2_62233")
@@ -2638,6 +2641,11 @@ sources/1 = SubResource("TileSetAtlasSource_kodlx")
 sources/2 = SubResource("TileSetAtlasSource_jjjyf")
 sources/3 = SubResource("TileSetAtlasSource_8wy51")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_slaw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gw6oj"]
+size = Vector2(498, 32)
+
 [node name="MainScene" type="Node2D"]
 
 [node name="sky" type="Sprite2D" parent="."]
@@ -2686,3 +2694,26 @@ position = Vector2(224, 450)
 
 [node name="player" parent="." instance=ExtResource("6_pymj5")]
 position = Vector2(226, 451)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Portail_OK"]]
+position = Vector2(-1857, 455)
+physics_material_override = SubResource("PhysicsMaterial_slaw1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_gw6oj")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(1.0375, 0.0625)
+texture = ExtResource("1_cvv2l")
+
+[node name="RigidBody2D" parent="." instance=ExtResource("7_s8f2w")]
+position = Vector2(-1987, 454)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("7_s8f2w")]
+position = Vector2(-1765, 452)
+
+[node name="portal1" parent="." instance=ExtResource("8_7x45i")]
+position = Vector2(-2011, 399)
+
+[node name="portal2" parent="." instance=ExtResource("9_5kvhn")]
+position = Vector2(-1852, 400)
