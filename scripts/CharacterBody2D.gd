@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 #Config du player
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 150.0
+const JUMP_VELOCITY = -300.0
 
 var portal_status = {
 	"last_portal": "None",
@@ -71,7 +71,7 @@ func camera_shake():
 #Au cas où le joueur tombe	
 func check_fall():
 	#print($Player_Sprite.global_position.x)
-	if $Player_Sprite.global_position.y > 1000:
+	if $Player_Sprite.global_position.y > 4000:
 		var player = get_node("../player")
 		player.global_position = get_node("../Spawn").global_position
 
@@ -92,18 +92,19 @@ func change_weapon_color():
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		sprite_2d.animation = "jump"
 
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		sprite_2d.animation = "new_animation"
+		sprite_2d.animation = "jump"
 
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * SPEED
-		sprite_2d.animation = "new_animation"
+		sprite_2d.animation = "run"
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		sprite_2d.animation = "new_animation"
+		sprite_2d.animation = "default"
 	
 	#Retourne l'arme pour qu'il vise toujours bien
 	weapon_sprite.flip_h = isLeft # NON FONCTIONNEL
