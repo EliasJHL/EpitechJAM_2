@@ -14,6 +14,8 @@ var portal_status = {
 var blue = false
 var orange = false
 
+var status_marche = 0
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var weapon_sprite = $Weapon_rotation/Weapon
@@ -30,8 +32,10 @@ func _process(delta):
 
 #Fonction pour placer les portails
 func fire():
+	var fire_sound = get_tree().current_scene.get_node("fire")
 	if Input.is_action_just_pressed("Place_Portal"):
 		#création d'une instance de la balle
+		fire_sound.play()
 		var bullet = bullet_path.instantiate()
 		#Position de la balle
 		bullet.global_position = $Weapon_rotation/Weapon/Shoot_Point.global_position
@@ -121,6 +125,10 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("Left", "Right")
 	if direction:
+		var marche_sound = get_tree().current_scene.get_node("marche")
+		if status_marche != 1:
+			marche_sound.play()
+			status_marche = 1
 		if Global.gravity == 0:
 			if velocity.x > direction * SPEED && Global.take_portal == true:
 				velocity.x -= 10
@@ -173,3 +181,6 @@ func _physics_process(delta):
 func _on_timer_timeout():
 		pass
 
+#Status play sound
+func _on_marche_finished():
+	status_marche = 0

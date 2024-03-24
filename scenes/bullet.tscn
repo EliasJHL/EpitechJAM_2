@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ougl4333lixe"]
+[gd_scene load_steps=6 format=3 uid="uid://ougl4333lixe"]
 
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_bm72u"]
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="2_6vlek"]
+[ext_resource type="AudioStream" uid="uid://doy4340kxri50" path="res://assets/pose.mp3" id="3_mebdn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwil1"]
 size = Vector2(8, 2)
@@ -33,6 +34,9 @@ shape = SubResource("RectangleShape2D_gyl35")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="pose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mebdn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

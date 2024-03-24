@@ -1,14 +1,20 @@
-[gd_scene load_steps=23 format=3 uid="uid://dobfpwmq6lpys"]
+[gd_scene load_steps=29 format=3 uid="uid://dobfpwmq6lpys"]
 
 [ext_resource type="Texture2D" uid="uid://ustehomhknec" path="res://assets/blank.jpg" id="1_cvv2l"]
 [ext_resource type="Texture2D" uid="uid://cyhne1o7ylje6" path="res://assets/tilesheet_snow.png" id="2_62233"]
 [ext_resource type="Texture2D" uid="uid://dx8nnv7imn026" path="res://assets/tilesheet_ice.png" id="3_640me"]
 [ext_resource type="Texture2D" uid="uid://c3erg2sq34ta6" path="res://assets/tilesheet_dungeon.png" id="4_xqxh8"]
 [ext_resource type="Texture2D" uid="uid://dstuvmgs6brm2" path="res://assets/tilesheet_grass.png" id="5_j0hnp"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="6_pymj5"]
+[ext_resource type="PackedScene" uid="uid://cwlkthw6w0n4e" path="res://scenes/player.tscn" id="6_pymj5"]
 [ext_resource type="PackedScene" uid="uid://ougl4333lixe" path="res://scenes/bullet.tscn" id="7_s8f2w"]
 [ext_resource type="PackedScene" uid="uid://bp6f4wl6agaet" path="res://scripts/portal1.tscn" id="8_7x45i"]
 [ext_resource type="PackedScene" uid="uid://byqi3daw1fexd" path="res://scripts/portal2.tscn" id="9_5kvhn"]
+[ext_resource type="AudioStream" uid="uid://bkrh7wbf2jr6a" path="res://assets/pas_1.mp3" id="10_4ngjh"]
+[ext_resource type="AudioStream" uid="uid://cjfn5uk5fulk" path="res://assets/tir.mp3" id="11_oofu0"]
+[ext_resource type="PackedScene" uid="uid://dk2ftcycqtrul" path="res://objects/ball.tscn" id="12_qfcbl"]
+[ext_resource type="PackedScene" uid="uid://br0w4xn2w3ch8" path="res://objects/Simple_Bloc.tscn" id="13_ymnjr"]
+[ext_resource type="AudioStream" uid="uid://cvemd6vbkxqen" path="res://assets/music.mp3" id="14_l1xfc"]
+[ext_resource type="PackedScene" uid="uid://cvbd5q4be3qvu" path="res://objects/banane.tscn" id="15_ai3vl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh5gk"]
 texture = ExtResource("2_62233")
@@ -2693,7 +2699,7 @@ layer_0/tile_data = PackedInt32Array(1900549, 65536, 0, 1900550, 65536, 0, 19005
 position = Vector2(224, 450)
 
 [node name="player" parent="." instance=ExtResource("6_pymj5")]
-position = Vector2(226, 451)
+position = Vector2(224, 448)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Portail_OK"]]
 position = Vector2(-1857, 455)
@@ -2717,3 +2723,64 @@ position = Vector2(-2011, 399)
 
 [node name="portal2" parent="." instance=ExtResource("9_5kvhn")]
 position = Vector2(-1852, 400)
+
+[node name="marche" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4ngjh")
+
+[node name="saut" type="AudioStreamPlayer2D" parent="."]
+
+[node name="fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_oofu0")
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("12_qfcbl")]
+position = Vector2(2281, 575)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("12_qfcbl")]
+position = Vector2(3409, 849)
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("12_qfcbl")]
+position = Vector2(2924, 1309)
+
+[node name="RigidBody2D6" parent="." instance=ExtResource("12_qfcbl")]
+position = Vector2(3409, 1354)
+
+[node name="RigidBody2D7" parent="." instance=ExtResource("12_qfcbl")]
+position = Vector2(1501, 1353)
+
+[node name="RigidBody2D8" parent="." instance=ExtResource("13_ymnjr")]
+position = Vector2(542, 449)
+
+[node name="RigidBody2D9" parent="." instance=ExtResource("13_ymnjr")]
+position = Vector2(602, 449)
+
+[node name="RigidBody2D10" parent="." instance=ExtResource("12_qfcbl")]
+position = Vector2(160, 219)
+
+[node name="RigidBody2D11" parent="." instance=ExtResource("12_qfcbl")]
+position = Vector2(478, 256)
+
+[node name="RigidBody2D12" parent="." instance=ExtResource("13_ymnjr")]
+position = Vector2(1238, 59)
+
+[node name="RigidBody2D13" parent="." instance=ExtResource("13_ymnjr")]
+position = Vector2(1349, 69)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_l1xfc")
+volume_db = -5.943
+autoplay = true
+max_distance = 4000.0
+
+[node name="banane" parent="." instance=ExtResource("15_ai3vl")]
+position = Vector2(933, 52)
+
+[node name="banane2" parent="." instance=ExtResource("15_ai3vl")]
+position = Vector2(2404, 338)
+
+[node name="banane3" parent="." instance=ExtResource("15_ai3vl")]
+position = Vector2(1481, 2664)
+
+[node name="banane4" parent="." instance=ExtResource("15_ai3vl")]
+position = Vector2(464, 1861)
+
+[connection signal="finished" from="marche" to="player" method="_on_marche_finished"]
