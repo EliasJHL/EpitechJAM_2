@@ -43,3 +43,8 @@ Toute contribution au projet est la bienvenue ! Si vous souhaitez contribuer, ve
 ## Licence
 
 Ce projet est Open Source, toute amélioration ou utilisation est libre.
+
+## Photo d'enzo au début du projet : 
+
+![image](https://github.com/EliasJHL/EpitechJAM_2/assets/145333474/d52f822e-d14d-4900-ac5e-8817dfd14d1e)
+
