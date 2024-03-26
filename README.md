@@ -5,6 +5,8 @@
 
 Bienvenue dans le projet pour la jam {EPITECH} ! Ce jeu a été créé à l'aide du moteur graphique Godot 4.
 
+Si vous souhaitez le tester : https://eliasjhl.itch.io/pixel-portal
+
 ## Contraintes & Thème
 
 Le thème de cette JAM est **Open**
