@@ -34,10 +34,10 @@ Le jeu a été développé en utilisant les technologies suivantes :
 Toute contribution au projet est la bienvenue ! Si vous souhaitez contribuer, veuillez suivre les étapes suivantes :
 
 1. Forkez le projet
-2. Créez une nouvelle branche (`git checkout -b feature/AmazingFeature`)
+2. Créez une nouvelle branche (`git checkout -b feature/{name}`)
 3. Faites vos modifications
 4. Validez vos modifications (`git commit -m 'Ajouter une fonctionnalité incroyable'`)
-5. Poussez votre branche (`git push origin feature/AmazingFeature`)
+5. Poussez votre branche (`git push origin feature/{name}`)
 6. Ouvrez une Pull Request
 
 ## Licence
